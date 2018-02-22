@@ -9,6 +9,18 @@ class DecisionMakerApp extends React.Component {
       options: []
     };
   }
+  componentDidMount(){
+    try{
+      const json = localStorage.getItem('options');
+      const options = JSON.parse(json);
+
+      if (options){
+        this.setState(()=>({options}))
+      }
+    } catch(e){
+      
+    }
+  }
   removeAllOptions() {
     this.setState(() => ({options: []}));
   }
